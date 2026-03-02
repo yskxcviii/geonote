@@ -1,8 +1,4 @@
-/* グローバルリセット ( PrimeReact の土台 ) */
+/* normalize.css は main.tsx で読み込み済み。ここでは補足のみ。 */
 * {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
 }
