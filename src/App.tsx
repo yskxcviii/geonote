@@ -1,5 +1,4 @@
 import Logo from './assets/geonote-logo.png'
-import './App.css'
 
 function App() {
   return (
