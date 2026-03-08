@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="src/assets/geonote-logo.png" alt="GeoNote" width="200" />
+</p>
+
 # GeoNote
 
 Vite + React + TypeScript の Web アプリケーション雛形です。
