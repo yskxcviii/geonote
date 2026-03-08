@@ -10,7 +10,7 @@ function App() {
         </a>
       </div>
       <h1>GeoNote</h1>
-      <div>🚧 Under construction...  🚧</div>
+      <div>🚧 Under construction... 🚧</div>
     </>
   )
 }
