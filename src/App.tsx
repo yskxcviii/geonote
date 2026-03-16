@@ -16,7 +16,7 @@ const App = () => {
     setSidebarVisible(!sidebarVisible)
   }
 
-  const styles: GeoNote.ComponentStyles<'root' | 'mainContent' | 'sidebarCell' | 'mainViewCell'> = {
+  const styles: GeoNote.ComponentStyles<'root' | 'mainContent'> = {
     root: {
       width: '100vw',
       height: '100vh',
@@ -31,13 +31,6 @@ const App = () => {
       transition: `grid-template-columns ${GRID_TRANSITION_MS}ms ease, gap ${GRID_TRANSITION_MS}ms ease`,
       gridTemplateColumns: sidebarVisible ? `${SIDEBAR_WIDTH} 1fr` : '0rem 1fr',
       gap: sidebarVisible ? THEME.spacing.sm : 0,
-    },
-    sidebarCell: {
-      overflow: 'hidden',
-      minWidth: 0,
-    },
-    mainViewCell: {
-      minWidth: 0,
     },
   }
 
