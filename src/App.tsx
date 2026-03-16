@@ -1,26 +1,33 @@
-import Logo from './assets/geonote-logo.png'
+import { Header } from '@/components/Header'
+import { Sidebar } from '@/components/Sidebar'
+import { MainView } from '@/components/MainView'
+import { VStack } from '@/components/layout/VStack'
+import { HStack } from '@/components/layout/HStack'
+import { THEME } from '@/constants'
+
+const styles: GeoNote.ComponentStyles<'root' | 'mainContent'> = {
+  root: {
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: THEME.color.background,
+    padding: THEME.spacing.sm,
+    gap: THEME.spacing.sm,
+  },
+  mainContent: {
+    width: '100%',
+    height: '100%',
+  },
+}
 
 const App = () => {
   return (
-    <div
-      style={{
-        width: '100vw',
-        height: '100vh',
-        backgroundColor: 'var(--surface-ground)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <div>
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={Logo} alt="logo" style={{ width: '100px', height: '100px' }} />
-        </a>
-      </div>
-      <h1>GeoNote</h1>
-      <div>🚧 Under construction... 🚧</div>
-    </div>
+    <VStack style={styles.root}>
+      <Header />
+      <HStack style={styles.mainContent}>
+        <Sidebar />
+        <MainView />
+      </HStack>
+    </VStack>
   )
 }
 
