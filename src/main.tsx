@@ -5,6 +5,7 @@ import 'normalize.css'
 import 'primereact/resources/themes/soho-dark/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
+import '@vscode/codicons/dist/codicon.css'
 import '@/index.css'
 import App from '@/App.tsx'
 

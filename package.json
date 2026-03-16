@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vscode/codicons": "^0.0.45",
     "normalize.css": "^8.0.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.7",
