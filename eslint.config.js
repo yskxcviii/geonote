@@ -30,5 +30,23 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
+  },
+  {
+    // @/constants 配下のファイルは src/constants/index.ts 経由でのみインポートを許可する
+    files: ['**/*.{ts,tsx}'],
+    ignores: ['src/constants/index.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/constants/*'],
+              message: '@/constants 配下のファイルは @/constants (index.ts) 経由でインポートしてください。',
+            },
+          ],
+        },
+      ],
+    },
   }
 )
