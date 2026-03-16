@@ -2,12 +2,14 @@ import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig } from 'eslint/config'
 import tseslint from 'typescript-eslint'
+import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths'
 
-export default tseslint.config(
+export default defineConfig(
   { ignores: ['dist', 'node_modules'] },
   js.configs.recommended,
-  ...tseslint.configs.recommended,
+  tseslint.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -28,6 +30,19 @@ export default tseslint.config(
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
+      ],
+    },
+  },
+  {
+    // 相対パスインポートを禁止し、@/ によるパスエイリアスを強制する
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      'no-relative-import-paths': noRelativeImportPaths,
+    },
+    rules: {
+      'no-relative-import-paths/no-relative-import-paths': [
+        'error',
+        { allowSameFolder: false, rootDir: 'src', prefix: '@' },
       ],
     },
   },
