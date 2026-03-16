@@ -4,7 +4,11 @@ import { HStack } from '@/components/layout/HStack'
 import logo from '@/assets/geonote-logo.png'
 import { Button } from 'primereact/button'
 
-export const Header = () => {
+type Props = {
+  onToggleSidebar: () => void
+}
+
+export const Header = ({ onToggleSidebar }: Props) => {
   const onClickBeaker = () => {
     window.open('https://geonote-proto.netlify.app/', '_blank')
   }
@@ -13,12 +17,36 @@ export const Header = () => {
     window.open('https://github.com/yskxcviii/geonote', '_blank')
   }
 
+  const styles: GeoNote.ComponentStyles<'productName'> = {
+    productName: {
+      fontSize: '1.5rem',
+      fontWeight: 'bold',
+    },
+  }
+
+  const pt: GeoNote.ComponentPt<{ name: 'root'; component: 'card' }> = {
+    root: {
+      root: {
+        style: { width: '100%' },
+      },
+    },
+  }
+
   return (
     <Card pt={pt.root}>
       <HStack justify="space-between" items="center">
         <HStack items="center">
-          <Image src={logo} alt="GeoNote Logo" width="36px" height="36px" />
-          <div style={styles.productName}>GeoNote</div>
+          <Button
+            icon="codicon codicon-three-bars"
+            rounded
+            link
+            onClick={onToggleSidebar}
+            pt={{ icon: { style: { fontSize: '1.5rem' } } }}
+          />
+          <HStack items="center">
+            <Image src={logo} alt="GeoNote Logo" width="36px" height="36px" />
+            <div style={styles.productName}>GeoNote</div>
+          </HStack>
         </HStack>
 
         <HStack justify="end" items="center">
@@ -44,19 +72,4 @@ export const Header = () => {
       </HStack>
     </Card>
   )
-}
-
-const styles: GeoNote.ComponentStyles<'productName'> = {
-  productName: {
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-  },
-}
-
-const pt: GeoNote.ComponentPt<{ name: 'root'; component: 'card' }> = {
-  root: {
-    root: {
-      style: { width: '100%' },
-    },
-  },
 }
