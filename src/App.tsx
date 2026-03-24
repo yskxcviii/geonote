@@ -1,5 +1,5 @@
 import { Header } from '@/components/Header'
-import { Sidebar } from '@/components/Sidebar'
+import { Sidebar } from '@/components/sidebar/Sidebar'
 import { MainView } from '@/components/MainView'
 import { VStack } from '@/components/layout/VStack'
 import { HStack } from '@/components/layout/HStack'
@@ -38,7 +38,7 @@ const App = () => {
     <VStack style={styles.root}>
       <Header onToggleSidebar={onToggleSidebar} />
       <HStack style={styles.mainContent}>
-        <Sidebar width={SIDEBAR_WIDTH} />
+        <Sidebar width={SIDEBAR_WIDTH} visible={sidebarVisible} />
         <MainView />
       </HStack>
     </VStack>
