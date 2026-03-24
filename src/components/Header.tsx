@@ -3,6 +3,7 @@ import { Image } from 'primereact/image'
 import { HStack } from '@/components/layout/HStack'
 import logo from '@/assets/geonote-logo.png'
 import { Button } from 'primereact/button'
+import { THEME } from '@/constants'
 
 type Props = {
   onToggleSidebar: () => void
@@ -29,6 +30,9 @@ export const Header = ({ onToggleSidebar }: Props) => {
       root: {
         style: { width: '100%' },
       },
+      body: {
+        style: { padding: THEME.spacing.sm },
+      },
     },
   }
 
@@ -39,7 +43,7 @@ export const Header = ({ onToggleSidebar }: Props) => {
           <Button
             icon="codicon codicon-three-bars"
             rounded
-            link
+            text
             onClick={onToggleSidebar}
             pt={{ icon: { style: { fontSize: '1.5rem' } } }}
           />
@@ -53,7 +57,7 @@ export const Header = ({ onToggleSidebar }: Props) => {
           <Button
             icon="codicon codicon-beaker"
             rounded
-            link
+            text
             onClick={onClickBeaker}
             pt={{ icon: { style: { fontSize: '1.5rem' } } }}
             tooltip="Prototype"
@@ -62,7 +66,7 @@ export const Header = ({ onToggleSidebar }: Props) => {
           <Button
             icon="codicon codicon-github-inverted"
             rounded
-            link
+            text
             onClick={onClickGithub}
             pt={{ icon: { style: { fontSize: '1.5rem' } } }}
             tooltip="GitHub"
