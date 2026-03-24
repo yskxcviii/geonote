@@ -7,15 +7,20 @@ import { THEME } from '@/constants'
 type Props = {
   width: string
   visible: boolean
+  isMobile: boolean
 }
 
-export const Sidebar = memo(({ width, visible }: Props) => {
+export const Sidebar = memo(({ width, visible, isMobile }: Props) => {
   const styles: GeoNote.ComponentStyles<'root'> = {
     root: {
       width: '100%',
       height: '100%',
       minWidth: 0,
       overflow: 'hidden',
+      position: isMobile ? 'absolute' : 'static',
+      inset: isMobile ? 0 : undefined,
+      zIndex: isMobile ? 10 : undefined,
+      pointerEvents: visible ? 'auto' : 'none',
     },
   }
 
@@ -23,13 +28,14 @@ export const Sidebar = memo(({ width, visible }: Props) => {
     card: {
       root: {
         style: {
-          width,
-          minWidth: width,
-          maxWidth: width,
+          width: isMobile ? '100%' : width,
+          minWidth: isMobile ? '100%' : width,
+          maxWidth: isMobile ? '100%' : width,
           height: '100%',
           overflow: 'hidden',
           opacity: visible ? 1 : 0,
-          transition: 'opacity 150ms ease',
+          transform: isMobile ? (visible ? 'translateX(0)' : 'translateX(-8px)') : 'none',
+          transition: isMobile ? 'opacity 150ms ease, transform 200ms ease' : 'opacity 150ms ease',
         },
       },
       body: {
