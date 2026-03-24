@@ -63,5 +63,23 @@ export default defineConfig(
         },
       ],
     },
+  },
+  {
+    // @/utils 配下のファイルは src/utils/index.ts 経由でのみインポートを許可する
+    files: ['**/*.{ts,tsx}'],
+    ignores: ['src/utils/index.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/utils/*'],
+              message: '@/utils 配下のファイルは @/utils (index.ts) 経由でインポートしてください。',
+            },
+          ],
+        },
+      ],
+    },
   }
 )
