@@ -6,7 +6,7 @@ import { HStack } from '@/components/layout/HStack'
 import { THEME } from '@/constants'
 import { useState } from 'react'
 
-const SIDEBAR_WIDTH = '25rem'
+const SIDEBAR_WIDTH = '24rem'
 const GRID_TRANSITION_MS = 250
 
 const App = () => {
